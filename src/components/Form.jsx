@@ -6,66 +6,66 @@ class Form extends React.Component {
     return (
       <form>
         <h2>Adicionar nova carta</h2>
-        <label htmlFor="name">
+        <label htmlFor="name-input">
           Nome:
           <input
             data-testid="name-input"
             type="text"
-            name="name"
+            name="name-input"
           />
         </label>
 
-        <label htmlFor="description">
+        <label htmlFor="description-input">
           Descrição:
           <textarea
             data-testid="description-input"
             type="text"
-            name="name"
+            name="description-input"
             cols="30"
             rows="3"
           />
         </label>
 
-        <label htmlFor="attr1">
+        <label htmlFor="attr1-input">
           Attr1:
           <input
             data-testid="attr1-input"
             type="number"
-            name="attr1"
+            name="attr1-input"
           />
         </label>
 
-        <label htmlFor="attr2">
+        <label htmlFor="attr2-input">
           Attr2:
           <input
             data-testid="attr2-input"
             type="number"
-            name="attr2"
+            name="attr2-input"
           />
         </label>
 
-        <label htmlFor="attr3">
+        <label htmlFor="attr3-input">
           Attr3:
           <input
             data-testid="attr3-input"
             type="number"
-            name="attr3"
+            name="attr3-input"
           />
         </label>
 
-        <label htmlFor="image">
+        <label htmlFor="image-input">
           Nome:
           <input
             data-testid="image-input"
             type="text"
-            name="image"
+            name="image-input"
           />
         </label>
 
-        <label htmlFor="options">
+        <label htmlFor="rare-input">
           Raridade:
           <select
-            name="options"
+            name="rare-input"
             data-testid="rare-input"
           >
             <option value="normal">Normal</option>
@@ -74,12 +74,12 @@ class Form extends React.Component {
           </select>
         </label>
 
-        <label htmlFor="trunfo">
+        <label htmlFor="trunfo-input">
           Super Trunfo:
           <input
             data-testid="trunfo-input"
             type="checkbox"
-            name="trunfo"
+            name="trunfo-input"
           />
         </label>
 
