@@ -101,6 +101,16 @@ class App extends React.Component {
     });
   }
 
+  removeCard = (event) => {
+    const { savedCards } = this.state;
+    savedCards.find(({ name }) => name === event);
+    const newSavedCards = savedCards.filter(({ name }) => name !== event);
+    this.setState({
+      savedCards: newSavedCards,
+      hasTrunfo: newSavedCards.some((card) => card.trunfo),
+    });
+  }
+
   render() {
     const {
       savedCards,
@@ -153,19 +163,28 @@ class App extends React.Component {
           attr3,
           image,
           rare,
-          trunfo }) => {
-          return (<Card
-            key={ name }
-            cardName={ name }
-            cardDescription={ description }
-            cardAttr1={ attr1 }
-            cardAttr2={ attr2 }
-            cardAttr3={ attr3 }
-            cardImage={ image }
-            cardRare={ rare }
-            cardTrunfo={ trunfo }
-          />);
-        })}
+          trunfo,
+        }) => (
+          <div key={ name }>
+            <Card
+              cardName={ name }
+              cardDescription={ description }
+              cardAttr1={ attr1 }
+              cardAttr2={ attr2 }
+              cardAttr3={ attr3 }
+              cardImage={ image }
+              cardRare={ rare }
+              cardTrunfo={ trunfo }
+            />
+            <button
+              type="button"
+              onClick={ () => this.removeCard(name) }
+              data-testid="delete-button"
+            >
+              Excluir
+            </button>
+          </div>
+        ))}
       </main>
     );
   }
