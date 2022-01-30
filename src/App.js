@@ -95,7 +95,7 @@ class App extends React.Component {
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
-      hasTrunfo: false,
+      hasTrunfo: cardTrunfo || savedCards.some((card) => card.cardTrunfo),
       isSaveButtonDisabled: true,
     });
   }
