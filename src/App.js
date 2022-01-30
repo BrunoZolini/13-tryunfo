@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
@@ -76,14 +77,14 @@ class App extends React.Component {
       cardTrunfo,
     } = this.state;
     const newCard = {
-      cardName,
-      cardDescription,
-      cardAttr1,
-      cardAttr2,
-      cardAttr3,
-      cardImage,
-      cardRare,
-      cardTrunfo,
+      name: cardName,
+      description: cardDescription,
+      attr1: cardAttr1,
+      attr2: cardAttr2,
+      attr3: cardAttr3,
+      image: cardImage,
+      rare: cardRare,
+      trunfo: cardTrunfo,
     };
     this.setState({
       savedCards: [...savedCards, newCard],
@@ -95,13 +96,14 @@ class App extends React.Component {
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
-      hasTrunfo: cardTrunfo || savedCards.some((card) => card.cardTrunfo),
+      hasTrunfo: cardTrunfo || savedCards.some((card) => card.trunfo),
       isSaveButtonDisabled: true,
     });
   }
 
   render() {
     const {
+      savedCards,
       cardName,
       cardDescription,
       cardAttr1,
@@ -116,6 +118,7 @@ class App extends React.Component {
 
     return (
       <main>
+        <h2>Adicionar nova carta</h2>
         <Form
           cardName={ cardName }
           cardDescription={ cardDescription }
@@ -130,6 +133,7 @@ class App extends React.Component {
           onInputChange={ this.handleChange }
           onSaveButtonClick={ this.handleSaveButton }
         />
+        <h2>Pré-visualização</h2>
         <Card
           cardName={ cardName }
           cardDescription={ cardDescription }
@@ -140,6 +144,28 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
+        <h2>Todas as Cartas</h2>
+        { savedCards.map(({
+          name,
+          description,
+          attr1,
+          attr2,
+          attr3,
+          image,
+          rare,
+          trunfo }) => {
+          return (<Card
+            key={ name }
+            cardName={ name }
+            cardDescription={ description }
+            cardAttr1={ attr1 }
+            cardAttr2={ attr2 }
+            cardAttr3={ attr3 }
+            cardImage={ image }
+            cardRare={ rare }
+            cardTrunfo={ trunfo }
+          />);
+        })}
       </main>
     );
   }
