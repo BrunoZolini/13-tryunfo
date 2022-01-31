@@ -12,10 +12,12 @@ class Card extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      cardColor,
     } = this.props;
+
     return (
 
-      <div className="card">
+      <div className="card" style={ { backgroundColor: cardColor } }>
         <h3 className="card-title" data-testid="name-card">{cardName}</h3>
         <img src={ cardImage } alt={ cardName } data-testid="image-card" />
         <p data-testid="description-card">{ cardDescription }</p>
@@ -24,6 +26,7 @@ class Card extends React.Component {
         <p data-testid="attr3-card">{`Attr3: ${cardAttr3}` }</p>
         <span data-testid="rare-card">{ cardRare }</span>
         { cardTrunfo ? <span data-testid="trunfo-card">Super Trunfo</span> : ''}
+        {console.log(cardColor)}
       </div>
 
     );
@@ -39,6 +42,7 @@ Card.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
+  cardColor: PropTypes.func.isRequired,
 };
 
 export default Card;

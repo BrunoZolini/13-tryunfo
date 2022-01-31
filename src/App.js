@@ -26,6 +26,12 @@ class App extends React.Component {
     };
   }
 
+  background = (option) => {
+    if (option === 'normal') return '#0e6e94';
+    if (option === 'raro') return '#42056bad';
+    if (option === 'muito raro') return '#f5a835ad';
+  };
+
   handleChange = ({ target: { value, name, type, checked } }) => {
     value = (type === 'checkbox') ? checked : value;
     this.setState({
@@ -164,6 +170,7 @@ class App extends React.Component {
               cardImage={ cardImage }
               cardRare={ cardRare }
               cardTrunfo={ cardTrunfo }
+              cardColor={ this.background(cardRare) }
             />
           </div>
         </div>
