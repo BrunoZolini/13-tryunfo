@@ -26,7 +26,6 @@ class Card extends React.Component {
         <p data-testid="attr3-card">{`Attr3: ${cardAttr3}` }</p>
         <span data-testid="rare-card">{ cardRare }</span>
         { cardTrunfo ? <span data-testid="trunfo-card">Super Trunfo</span> : ''}
-        {console.log(cardColor)}
       </div>
 
     );

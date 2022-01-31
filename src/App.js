@@ -204,6 +204,8 @@ class App extends React.Component {
               cardImage={ image }
               cardRare={ rare }
               cardTrunfo={ trunfo }
+              cardColor={ this.background(rare) }
+
             />
             <button
               type="button"
