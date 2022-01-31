@@ -1,8 +1,8 @@
-/* eslint-disable arrow-body-style */
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
 import Filter from './components/Filter';
+import './App.css';
 
 class App extends React.Component {
   constructor() {
@@ -22,7 +22,7 @@ class App extends React.Component {
       isSaveButtonDisabled: true,
       filterName: '',
       filterRare: 'todas',
-      // filterTrunfo: false,
+      filterTrunfo: false,
     };
   }
 
@@ -130,7 +130,7 @@ class App extends React.Component {
       isSaveButtonDisabled,
       filterName,
       filterRare,
-      // filterTrunfo,
+      filterTrunfo,
     } = this.state;
 
     return (
@@ -162,7 +162,10 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
         />
         <h2>Todas as Cartas</h2>
-        <Filter onInputChange={ this.handleChange } />
+        <Filter
+          onInputChange={ this.handleChange }
+          trunfoCheckbox={ filterTrunfo }
+        />
         { savedCards.map(({
           name,
           description,
@@ -198,7 +201,9 @@ class App extends React.Component {
             </button>
           </div>
         )).filter(({ props: { name } }) => name.includes(filterName))
-          .filter(({ props: { rare } }) => rare === filterRare || filterRare === 'todas')}
+          .filter(({ props: { rare } }) => rare === filterRare || filterRare === 'todas')
+          .filter(({ props: { trunfo } }) => trunfo === filterTrunfo
+          || filterTrunfo === false)}
       </main>
     );
   }
