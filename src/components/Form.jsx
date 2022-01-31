@@ -102,10 +102,11 @@ class Form extends React.Component {
           </select>
         </label>
 
-        <label htmlFor="cardTrunfo">
+        <label htmlFor="cardTrunfo" className="trunfo-check">
           Super Trunfo:
           {hasTrunfo ? <span>Você já tem um Super Trunfo em seu baralho</span> : <input
             data-testid="trunfo-input"
+            className="trunfo-check"
             type="checkbox"
             name="cardTrunfo"
             checked={ cardTrunfo }

@@ -135,32 +135,38 @@ class App extends React.Component {
 
     return (
       <main>
-        <h2>Adicionar nova carta</h2>
-        <Form
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-          hasTrunfo={ hasTrunfo }
-          isSaveButtonDisabled={ isSaveButtonDisabled }
-          onInputChange={ this.handleChange }
-          onSaveButtonClick={ this.handleSaveButton }
-        />
-        <h2>Pré-visualização</h2>
-        <Card
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-        />
+        <div className="create-card">
+          <div className="add-card">
+            <h2>Adicionar nova carta</h2>
+            <Form
+              cardName={ cardName }
+              cardDescription={ cardDescription }
+              cardAttr1={ cardAttr1 }
+              cardAttr2={ cardAttr2 }
+              cardAttr3={ cardAttr3 }
+              cardImage={ cardImage }
+              cardRare={ cardRare }
+              cardTrunfo={ cardTrunfo }
+              hasTrunfo={ hasTrunfo }
+              isSaveButtonDisabled={ isSaveButtonDisabled }
+              onInputChange={ this.handleChange }
+              onSaveButtonClick={ this.handleSaveButton }
+            />
+          </div>
+          <div className="preview-block">
+            <h2>Pré-visualização</h2>
+            <Card
+              cardName={ cardName }
+              cardDescription={ cardDescription }
+              cardAttr1={ cardAttr1 }
+              cardAttr2={ cardAttr2 }
+              cardAttr3={ cardAttr3 }
+              cardImage={ cardImage }
+              cardRare={ cardRare }
+              cardTrunfo={ cardTrunfo }
+            />
+          </div>
+        </div>
         <h2>Todas as Cartas</h2>
         <Filter
           onInputChange={ this.handleChange }
@@ -200,7 +206,9 @@ class App extends React.Component {
               Excluir
             </button>
           </div>
-        )).filter(({ props: { name } }) => name.includes(filterName))
+        )).filter(({ props: { name } }) => name
+          .toLowerCase()
+          .includes(filterName.toLowerCase()))
           .filter(({ props: { rare } }) => rare === filterRare || filterRare === 'todas')
           .filter(({ props: { trunfo } }) => trunfo === filterTrunfo
           || filterTrunfo === false)}
