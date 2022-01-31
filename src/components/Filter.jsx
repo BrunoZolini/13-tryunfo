@@ -5,7 +5,7 @@ class Filter extends React.Component {
   render() {
     const { onInputChange } = this.props;
     return (
-      <div>
+      <form>
         <h3>Filtro de Busca</h3>
         <input
           type="text"
@@ -14,7 +14,17 @@ class Filter extends React.Component {
           onChange={ onInputChange }
           name="filterName"
         />
-      </div>
+        <select
+          data-testid="rare-filter"
+          onChange={ onInputChange }
+          name="filterRare"
+        >
+          <option>todas</option>
+          <option>normal</option>
+          <option>raro</option>
+          <option>muito raro</option>
+        </select>
+      </form>
     );
   }
 }

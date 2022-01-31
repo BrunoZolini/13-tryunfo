@@ -21,7 +21,7 @@ class App extends React.Component {
       hasTrunfo: false,
       isSaveButtonDisabled: true,
       filterName: '',
-      // filterRare: '',
+      filterRare: 'todas',
       // filterTrunfo: false,
     };
   }
@@ -129,7 +129,7 @@ class App extends React.Component {
       hasTrunfo,
       isSaveButtonDisabled,
       filterName,
-      // filterRare,
+      filterRare,
       // filterTrunfo,
     } = this.state;
 
@@ -197,7 +197,8 @@ class App extends React.Component {
               Excluir
             </button>
           </div>
-        )).filter((card) => card.props.name.includes(filterName))}
+        )).filter(({ props: { name } }) => name.includes(filterName))
+          .filter(({ props: { rare } }) => rare === filterRare || filterRare === 'todas')}
       </main>
     );
   }
